@@ -75,7 +75,7 @@ img:not([draggable]),
 embed,
 object,
 video {
-  max-width: 100px;
+  max-width: 100%;
   height: auto;
 }
 ul {
@@ -10656,6 +10656,7 @@ ul.comment-list:has(> .th-comment-item ~ .th-comment-item):first-child
 }
 .hero-1 .th-hero-bg {
   z-index: 2;
+ 
 }
 .hero-1-shape {
   position: absolute;
@@ -11005,6 +11006,7 @@ ul.comment-list:has(> .th-comment-item ~ .th-comment-item):first-child
 .hero-2 .th-hero-bg {
   border-radius: 24px;
   overflow: hidden;
+ 
 }
 .hero-2 .th-hero-bg:before {
   content: "";
