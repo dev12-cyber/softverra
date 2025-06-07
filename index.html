@@ -1544,73 +1544,463 @@
 
 
 
-    <div class="gallery-area overflow-hidden">
-        <div class="container th-container">
-            <div class="title-area text-center"><span class="sub-title mb-15 text-anime-style-2">Our Gallery</span>
-                <h2 class="sec-title text-anime-style-3">Our Recent Project Gallery</h2>
-            </div>
-            <div class="row gy-10 gx-10 justify-content-center align-items-center">
-                <div class="col-md-6 col-lg-2">
-                    <div class="gallery-card">
-                        <div class="box-img global-img"><a href="assets/img/gallery/gallery_1_1.jpg"
-                                class="popup-image">
-                                <div class="icon-btn"><i class="fal fa-magnifying-glass-plus"></i></div><img
-                                    src="assets/img/gallery/gallery_1_1.jpg" alt="gallery image">
-                            </a></div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-2">
-                    <div class="gallery-card">
-                        <div class="box-img global-img"><a href="assets/img/gallery/gallery_1_2.jpg"
-                                class="popup-image">
-                                <div class="icon-btn"><i class="fal fa-magnifying-glass-plus"></i></div><img
-                                    src="assets/img/gallery/gallery_1_2.jpg" alt="gallery image">
-                            </a></div>
-                    </div>
-                    <div class="gallery-card">
-                        <div class="box-img global-img"><a href="assets/img/gallery/gallery_1_3.jpg"
-                                class="popup-image">
-                                <div class="icon-btn"><i class="fal fa-magnifying-glass-plus"></i></div><img
-                                    src="assets/img/gallery/gallery_1_3.jpg" alt="gallery image">
-                            </a></div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-2">
-                    <div class="gallery-card">
-                        <div class="box-img global-img"><a href="assets/img/gallery/gallery_1_4.jpg"
-                                class="popup-image">
-                                <div class="icon-btn"><i class="fal fa-magnifying-glass-plus"></i></div><img
-                                    src="assets/img/gallery/gallery_1_4.jpg" alt="gallery image">
-                            </a></div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-2">
-                    <div class="gallery-card">
-                        <div class="box-img global-img"><a href="assets/img/gallery/gallery_1_5.jpg"
-                                class="popup-image">
-                                <div class="icon-btn"><i class="fal fa-magnifying-glass-plus"></i></div><img
-                                    src="assets/img/gallery/gallery_1_5.jpg" alt="gallery image">
-                            </a></div>
-                    </div>
-                    <div class="gallery-card">
-                        <div class="box-img global-img"><a href="assets/img/gallery/gallery_1_6.jpg"
-                                class="popup-image">
-                                <div class="icon-btn"><i class="fal fa-magnifying-glass-plus"></i></div><img
-                                    src="assets/img/gallery/gallery_1_6.jpg" alt="gallery image">
-                            </a></div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-2">
-                    <div class="gallery-card">
-                        <div class="box-img global-img"><a href="assets/img/gallery/gallery_1_7.jpg"
-                                class="popup-image">
-                                <div class="icon-btn"><i class="fal fa-magnifying-glass-plus"></i></div><img
-                                    src="assets/img/gallery/gallery_1_7.jpg" alt="gallery image">
-                            </a></div>
-                    </div>
-                </div>
-            </div>
+   
+        <style>
+             .softverragallery {
+           
+            width: 100%;
+            padding: 30px 30px;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .softverragallery::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(11, 89, 219, 0.07) 0%, transparent 25%),
+                radial-gradient(circle at 90% 40%, rgba(11, 89, 219, 0.05) 0%, transparent 25%),
+                radial-gradient(circle at 50% 80%, rgba(11, 89, 219, 0.08) 0%, transparent 25%);
+            z-index: -1;
+        }
+        
+        .softverra-header {
+            text-align: center;
+            margin-bottom: 70px;
+            position: relative;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+       .gallery-item {
+    position: relative;
+    height: 380px;
+    border-radius: 20px;
+    overflow: hidden;
+    perspective: 1000px;
+    cursor: pointer;
+    box-shadow: 0 20px 40px rgba(11, 89, 219, 0.15);
+    background: #ffffff;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.item-content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 30px;
+    background: linear-gradient(transparent 30%, rgba(255, 255, 255, 0.95) 70%);
+    z-index: 2;
+}
+
+.item-content a {
+    margin-bottom: 10px;
+}
+
+.item-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #1a2a4e;
+}
+
+        
+      
+        
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 40px;
+         
+        }
+        
+       
+        
+        .gallery-item:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 30px 60px rgba(11, 89, 219, 0.25);
+        }
+        
+       
+        .item-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+            z-index: 1;
+        }
+        
+        .gallery-item:hover .item-image {
+            transform: scale(1.15);
+        }
+        
+        .item-category {
+            background: rgba(11, 89, 219, 0.12);
+            color: #0b59db;
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(11, 89, 219, 0.2);
+        }
+        
+       
+        
+        .item-description {
+            font-size: 1rem;
+            color: #4a5a7a;
+            line-height: 1.6;
+            opacity: 0;
+            max-height: 0;
+            transition: all 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+            overflow: hidden;
+        }
+        
+        .gallery-item:hover .item-description {
+            opacity: 1;
+            max-height: 100px;
+        }
+        
+        .item-stats {
+            display: flex;
+            margin-top: 20px;
+            gap: 15px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1) 0.1s;
+        }
+        
+        .gallery-item:hover .item-stats {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .stat {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 6px 15px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            color: #0b59db;
+            box-shadow: 0 5px 15px rgba(11, 89, 219, 0.1);
+            font-weight: 600;
+        }
+        
+        .stat i {
+            color: #0b59db;
+        }
+        
+        .tech-bubbles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        
+        .tech-bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(11, 89, 219, 0.1);
+            animation: float 15s infinite linear;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0b59db;
+            font-weight: bold;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            backdrop-filter: blur(2px);
+            border: 1px solid rgba(11, 89, 219, 0.15);
+        }
+        
+        .tech-bubble:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 10%;
+            left: 5%;
+            animation-duration: 20s;
+        }
+        
+        .tech-bubble:nth-child(2) {
+            width: 60px;
+            height: 60px;
+            top: 60%;
+            left: 80%;
+            animation-duration: 25s;
+            animation-delay: -5s;
+        }
+        
+        .tech-bubble:nth-child(3) {
+            width: 100px;
+            height: 100px;
+            top: 80%;
+            left: 20%;
+            animation-duration: 15s;
+            animation-delay: -10s;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(50px, -50px) rotate(90deg);
+            }
+            50% {
+                transform: translate(100px, 0) rotate(180deg);
+            }
+            75% {
+                transform: translate(50px, 50px) rotate(270deg);
+            }
+            100% {
+                transform: translate(0, 0) rotate(360deg);
+            }
+        }
+        
+        .glow-effect {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: radial-gradient(circle at center, rgba(11, 89, 219, 0.1), transparent 70%);
+            z-index: -1;
+            opacity: 0.3;
+            animation: glowPulse 8s infinite alternate;
+        }
+        
+        @keyframes glowPulse {
+            0% {
+                opacity: 0.2;
+            }
+            100% {
+                opacity: 0.4;
+            }
+        }
+        
+        @media (max-width: 1100px) {
+            .gallery-container {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
             
+            .softverra-title {
+                font-size: 3rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .gallery-container {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+            
+            .softverra-title {
+                font-size: 2.5rem;
+            }
+            
+            .softverra-subtitle {
+                font-size: 1.1rem;
+            }
+        }
+        </style>
+        <section class="softverragallery">
+    <div class="title-area text-center">
+        <span class="sub-title mb-15 text-anime-style-2">Our Gallery</span>
+        <h2 class="sec-title text-anime-style-3">Our Recent IT Projects</h2>
+    </div>
+    <div class="gallery-container">
+        <!-- Item 1 -->
+        <div class="gallery-item">
+           
+            <div class="item-content">
+                  <img src="assets/img/service/service_img_4.jpg" alt="">
+                <a class="th-btn style4 mt-auto" href="service-details.html">See All <i class="fa-light fa-arrow-right-long"></i></a>
+                <div style="margin-top: 10px;"></div>
+                <h3 class="item-title">AI Integration Project</h3>
+                <p class="item-description">Implemented AI-driven analytics to enhance decision-making processes across departments.</p>
+                <div class="item-stats">
+                    <div class="stat"><i class="fas fa-brain"></i> AI-Powered</div>
+                    <div class="stat"><i class="fas fa-chart-line"></i> 30% Efficiency Boost</div>
+                </div>
+            </div>
+            <div class="tech-bubbles">
+                <div class="tech-bubble">AI</div>
+            </div>
+        </div>
+        
+        <!-- Item 2 -->
+        <div class="gallery-item">
+          
+            <div class="item-content">
+                  <img src="assets/img/service/service_img_4.jpg" alt="">
+                <a class="th-btn style4 mt-auto" href="service-details.html">See All <i class="fa-light fa-arrow-right-long"></i></a>
+                <div style="margin-top: 10px;"></div>
+                <h3 class="item-title">Cloud Migration</h3>
+                <p class="item-description">Seamless transition of legacy systems to cloud infrastructure ensuring scalability and security.</p>
+                <div class="item-stats">
+                    <div class="stat"><i class="fas fa-cloud"></i> 99.9% Uptime</div>
+                    <div class="stat"><i class="fas fa-lock"></i> Enhanced Security</div>
+                </div>
+            </div>
+            <div class="tech-bubbles">
+                <div class="tech-bubble">Cloud</div>
+            </div>
+        </div>
+        
+        <!-- Item 3 -->
+        <div class="gallery-item">
+           
+            <div class="item-content">
+                  <img src="assets/img/service/service_img_4.jpg" alt="">
+                <a class="th-btn style4 mt-auto" href="service-details.html">See All <i class="fa-light fa-arrow-right-long"></i></a>
+                <div style="margin-top: 10px;"></div>
+                <h3 class="item-title">Cybersecurity Enhancement</h3>
+                <p class="item-description">Upgraded security protocols to protect against emerging cyber threats and vulnerabilities.</p>
+                <div class="item-stats">
+                    <div class="stat"><i class="fas fa-shield-alt"></i> 0 Breaches</div>
+                    <div class="stat"><i class="fas fa-user-shield"></i> 24/7 Monitoring</div>
+                </div>
+            </div>
+            <div class="tech-bubbles">
+                <div class="tech-bubble">Security</div>
+            </div>
+        </div>
+        
+        <!-- Item 4 -->
+        <div class="gallery-item">
+           
+            <div class="item-content">
+                  <img src="assets/img/service/service_img_4.jpg" alt="">
+                <a class="th-btn style4 mt-auto" href="service-details.html">See All <i class="fa-light fa-arrow-right-long"></i></a>
+                <div style="margin-top: 10px;"></div>
+                <h3 class="item-title">Data Analytics Dashboard</h3>
+                <p class="item-description">Developed interactive dashboards for real-time data visualization and insights.</p>
+                <div class="item-stats">
+                    <div class="stat"><i class="fas fa-database"></i> 5TB Processed</div>
+                    <div class="stat"><i class="fas fa-chart-pie"></i> 360° Insights</div>
+                </div>
+            </div>
+            <div class="tech-bubbles">
+                <div class="tech-bubble">Analytics</div>
+            </div>
+        </div>
+        
+        <!-- Item 5 -->
+        <div class="gallery-item">
+           
+            <div class="item-content">
+                  <img src="assets/img/service/service_img_4.jpg" alt="">
+                <a class="th-btn style4 mt-auto" href="service-details.html">See All <i class="fa-light fa-arrow-right-long"></i></a>
+                <div style="margin-top: 10px;"></div>
+                <h3 class="item-title">IoT Implementation</h3>
+                <p class="item-description">Integrated IoT devices across facilities for enhanced monitoring and automation.</p>
+                <div class="item-stats">
+                    <div class="stat"><i class="fas fa-network-wired"></i> 1M+ Devices</div>
+                    <div class="stat"><i class="fas fa-bolt"></i> Real-Time Data</div>
+                </div>
+            </div>
+            <div class="tech-bubbles">
+                <div class="tech-bubble">IoT</div>
+            </div>
+        </div>
+        
+        <!-- Item 6 -->
+        <div class="gallery-item">
+           
+            <div class="item-content">
+                <img src="assets/img/service/service_img_4.jpg" alt="">
+                <a class="th-btn style4 mt-auto" href="service-details.html">See All <i class="fa-light fa-arrow-right-long"></i></a>
+                <div style="margin-top: 10px;"></div>
+                <h3 class="item-title">DevOps Automation</h3>
+                <p class="item-description">Streamlined development and deployment processes through CI/CD pipelines.</p>
+                <div class="item-stats">
+                    <div class="stat"><i class="fas fa-sync-alt"></i> 95% Faster</div>
+                    <div class="stat"><i class="fas fa-bug"></i> 99% Fewer Errors</div>
+                </div>
+            </div>
+            <div class="tech-bubbles">
+                <div class="tech-bubble">DevOps</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <script>
+        // Add tilt effect to gallery items
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        
+        galleryItems.forEach(item => {
+            item.addEventListener('mousemove', (e) => {
+                const rect = item.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateY = (x - centerX) / 25;
+                const rotateX = (centerY - y) / 25;
+                
+                item.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(20px)`;
+            });
+            
+            item.addEventListener('mouseleave', () => {
+                item.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
+            });
+        });
+        
+        // Create tech bubbles dynamically
+        const techBubblesContainers = document.querySelectorAll('.tech-bubbles');
+        
+        techBubblesContainers.forEach(container => {
+            const techs = ['AI', 'Cloud', 'IoT', 'Data', 'ML', 'API', 'DevOps', 'Security'];
+            
+            for (let i = 0; i < 4; i++) {
+                const bubble = document.createElement('div');
+                bubble.classList.add('tech-bubble');
+                
+                // Random size
+                const size = Math.floor(Math.random() * 40) + 50;
+                bubble.style.width = `${size}px`;
+                bubble.style.height = `${size}px`;
+                
+                // Random position
+                bubble.style.top = `${Math.random() * 80}%`;
+                bubble.style.left = `${Math.random() * 80}%`;
+                
+                // Random animation
+                const duration = Math.floor(Math.random() * 20) + 15;
+                bubble.style.animationDuration = `${duration}s`;
+                bubble.style.animationDelay = `-${Math.random() * 10}s`;
+                
+                // Random tech term
+                bubble.textContent = techs[Math.floor(Math.random() * techs.length)];
+                
+                container.appendChild(bubble);
+            }
+        });
+    </script>
             <div class="shape-mockup th-line-shape d-none d-xl-block" data-top="-18%" data-left="0"><span><svg
                         width="3200" height="860" viewBox="0 0 3200 860" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path class="line-1"
@@ -2189,7 +2579,7 @@
                     <div class="col-md-6 col-xl-3">
                         <div class="widget footer-widget">
                             <div class="th-widget-about">
-                                <div class="about-logo"><a href="index.html"><img src="assets/Softverra logobg.png"
+                                <div class="about-logo"><a href="index.html"><img src="assets/Softverra logo.jpg"
                                             alt="Atek"></a></div>
                                 <p class="about-text">Softverra. Empowering businesses with innovative IT solutions and expert software development. Your trusted partner in digital transformation</p>
                                 <div class="th-social"><a href="https://www.facebook.com/"><i
